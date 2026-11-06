@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angel Diaz — Portafolio</title>
+<meta name="description" content="Angel David Díaz Pinilla — Desarrollador Full Stack (Java, Spring Boot, React, React Native). Armenia, Colombia · Remoto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Caveat:wght@600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#120d0f; --bg2:#1b1417; --line:#2c2226; --text:#f3ece4; --muted:#a8999a;
+    --accent:#e8b04a; --wine:#7a1f2b; --paper:#efe6d2; --ink:#2a2220;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(60% 40% at 80% 0%,rgba(122,31,43,.35),transparent 70%),
+               radial-gradient(50% 35% at 0% 60%,rgba(232,176,74,.08),transparent 70%)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:rgba(18,13,15,.7);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-family:"Instrument Serif",serif;font-size:1.5rem;letter-spacing:.5px}
+  .logo span{color:var(--accent)}
+  .links{display:flex;gap:22px;font-size:.88rem;color:var(--muted)}
+  .links a:hover{color:var(--text)}
+  .cta-sm{background:var(--accent);color:#1a1210;padding:8px 14px;border-radius:999px;font-weight:600;font-size:.85rem}
+  @media(max-width:760px){.links{display:none}}
+
+  /* HERO */
+  .hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  @media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:36px}}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5fd38a;margin-right:8px;box-shadow:0 0 0 4px rgba(95,211,138,.15);vertical-align:1px}
+  h1{font-size:clamp(3rem,9vw,5.6rem);line-height:.95;margin:14px 0 18px}
+  h1 em{color:var(--accent)}
+  .tag{display:inline-block;position:relative;background:var(--paper);color:var(--ink);
+       font-family:Caveat,cursive;font-size:clamp(1.5rem,4.5vw,2.1rem);padding:6px 22px 4px;
+       transform:rotate(-2deg);box-shadow:0 10px 25px rgba(0,0,0,.45);min-width:270px;text-align:center}
+  .tag::before{content:"";position:absolute;top:-6px;left:0;right:0;height:10px;
+       background:radial-gradient(circle at 6px 5px,var(--bg) 3px,transparent 3.5px) 0 0/16px 10px repeat-x}
+  #role{display:inline-block;transition:opacity .35s,transform .35s}
+  #role.out{opacity:0;transform:translateY(8px)}
+  .lead{color:var(--muted);max-width:500px;margin:26px 0 28px;font-size:1.03rem}
+  .lead b{color:var(--text);font-weight:500}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid var(--line);transition:transform .2s,background .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--accent);color:#1a1210;border-color:var(--accent)}
+  .btn.ghost:hover{background:var(--bg2)}
+  .btn svg{width:17px;height:17px}
+
+  .portrait{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;cursor:pointer;
+    background:linear-gradient(160deg,#2a1a1e,#140e10);border:1px solid var(--line)}
+  .portrait::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 50% 40%,rgba(122,31,43,.55),transparent 70%);transition:opacity .6s}
+  .portrait img{position:absolute;left:50%;bottom:0;width:96%;height:auto;transform:translateX(-50%) scale(1);transform-origin:bottom center;
+    filter:grayscale(1) contrast(1.08) brightness(.95);transition:filter .7s ease,transform .7s ease}
+  .portrait:hover img,.portrait.color img{filter:grayscale(0) contrast(1) brightness(1);transform:translateX(-50%) scale(1.03)}
+  .portrait:hover::before,.portrait.color::before{opacity:.4}
+  .stat{position:absolute;top:18px;right:18px;background:rgba(18,13,15,.8);border:1px solid var(--line);
+    border-radius:16px;padding:10px 14px;text-align:right}
+  .stat b{font-family:"Instrument Serif",serif;font-size:2.2rem;color:var(--accent);line-height:1;font-weight:400}
+  .stat small{display:block;font-size:.72rem;color:var(--muted)}
+  .stat.l{right:auto;left:18px;text-align:left;top:auto;bottom:62px}
+  .portrait .note{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:.72rem;color:var(--text);white-space:nowrap;
+    background:rgba(18,13,15,.75);border:1px solid var(--line);padding:6px 12px;border-radius:999px;transition:opacity .4s}
+  .portrait:hover .note,.portrait.color .note{opacity:0}
+
+  /* STICKIES */
+  .stickies{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;padding:30px 0 50px}
+  .sticky{background:var(--paper);color:var(--ink);font-family:Caveat,cursive;font-size:1.35rem;
+    padding:8px 18px;box-shadow:0 8px 18px rgba(0,0,0,.4);transition:transform .25s}
+  .sticky:nth-child(odd){transform:rotate(-3deg)} .sticky:nth-child(even){transform:rotate(2.5deg)}
+  .sticky:nth-child(3n){background:#e9c98f}
+  .sticky:hover{transform:rotate(0) scale(1.08)}
+
+  section{padding:70px 0}
+  .sec-head{margin-bottom:36px}
+  h2{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;margin-top:10px}
+  h2 em{color:var(--accent)}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+  @media(max-width:820px){.about{grid-template-columns:1fr}}
+  .about p{color:var(--muted);font-size:1.05rem;margin-bottom:14px}
+  .about p b{color:var(--text);font-weight:500}
+  .facts{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:8px 22px}
+  .facts div{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .facts div:last-child{border:0}
+  .facts span{color:var(--muted)}
+
+  /* PROJECTS */
+  .projects{display:grid;gap:26px}
+  .proj{display:grid;grid-template-columns:1fr 1fr;gap:28px;background:var(--bg2);border:1px solid var(--line);border-radius:26px;padding:22px;align-items:center;transition:border-color .3s}
+  .proj:hover{border-color:rgba(232,176,74,.5)}
+  @media(max-width:820px){.proj{grid-template-columns:1fr}}
+  .proj .year{font-size:.75rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .proj h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:2.1rem;line-height:1.05;margin:6px 0 10px}
+  .proj p{color:var(--muted);font-size:.95rem}
+  .proj ul{list-style:none;margin:14px 0;font-size:.9rem}
+  .proj li{padding:7px 0;border-top:1px dashed var(--line);color:#d9cfc6}
+  .proj li::before{content:"✦ ";color:var(--accent)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+  .proj .more{display:inline-flex;gap:6px;margin-top:16px;font-size:.88rem;color:var(--accent);font-weight:600}
+  .proj .more:hover{text-decoration:underline}
+
+  /* mockups */
+  .stage{border-radius:18px;aspect-ratio:4/3;position:relative;overflow:hidden;display:grid;place-items:center}
+  .phone{width:44%;aspect-ratio:9/18.5;background:#0d0a0b;border-radius:26px;border:5px solid #2a2326;padding:16px 10px;box-shadow:0 20px 40px rgba(0,0,0,.5);position:relative}
+  .phone::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:34%;height:8px;border-radius:6px;background:#2a2326}
+  .phone .h{font-size:.62rem;font-weight:600;margin:6px 0 8px;color:#fff}
+  .row{display:flex;justify-content:space-between;align-items:center;background:#1c1618;border-radius:8px;padding:6px 7px;margin-bottom:6px;font-size:.5rem;color:#cfc5bd}
+  .badge{font-size:.45rem;padding:2px 6px;border-radius:999px;font-weight:600}
+  .browser{width:88%;background:#0f0c0d;border-radius:12px;border:1px solid #2c2226;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .browser .bar{height:20px;background:#1b1618;display:flex;gap:5px;align-items:center;padding-left:9px}
+  .browser .bar i{width:7px;height:7px;border-radius:50%;background:#3a3034}
+  .dash{display:grid;grid-template-columns:24% 1fr;min-height:180px}
+  .side{background:#151112;padding:10px 8px}
+  .side div{height:6px;border-radius:3px;background:#2c2427;margin-bottom:9px}
+  .side div:first-child{background:var(--accent);width:70%}
+  .main{padding:12px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+  .kpi{background:#1c1618;border-radius:8px;padding:8px;font-size:.5rem;color:var(--muted)}
+  .kpi b{display:block;color:#fff;font-size:.85rem}
+  .bars{display:flex;align-items:end;gap:6px;height:70px;margin-top:12px;padding:8px;background:#1c1618;border-radius:8px}
+  .bars span{flex:1;background:linear-gradient(#e8b04a,#7a1f2b);border-radius:3px 3px 0 0}
+  .term{width:88%;background:#0c0a0b;border:1px solid #2c2226;border-radius:12px;padding:14px;font-family:"JetBrains Mono",monospace;font-size:.62rem;line-height:1.7;color:#cfc5bd;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .term .k{color:#e8b04a}.term .s{color:#8fd19e}.term .c{color:#6e6266}.term .m{color:#c79bff}
+
+  /* STACK */
+  .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:820px){.stack{grid-template-columns:1fr}}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:24px;transition:border-color .25s,transform .25s}
+  .card:hover{border-color:var(--accent);transform:translateY(-4px)}
+  .card .num{font-family:"Instrument Serif",serif;color:var(--accent);font-size:1.5rem}
+  .card h3{font-size:1.1rem;margin:6px 0 12px}
+
+  /* TIMELINE */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:820px){.two{grid-template-columns:1fr}}
+  .tl{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:24px}
+  .tl h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:1.7rem;margin-bottom:10px}
+  .item{position:relative;padding:12px 0 12px 22px;border-left:1px solid var(--line)}
+  .item::before{content:"";position:absolute;left:-5px;top:19px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  .item b{display:block;font-weight:500;font-size:.95rem}
+  .item span{color:var(--muted);font-size:.84rem}
+
+  /* CV + CONTACT */
+  .contact{text-align:center;background:linear-gradient(160deg,#2a141a,#16100f);border:1px solid var(--line);border-radius:32px;padding:60px 24px;position:relative;overflow:hidden}
+  .contact h2{margin:10px auto 16px;max-width:700px}
+  .contact p{color:var(--muted);max-width:480px;margin:0 auto 28px}
+  .contact .btns{justify-content:center}
+  .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:28px;font-size:.88rem;color:var(--muted)}
+  .socials a:hover{color:var(--accent)}
+  .cvnote{position:absolute;top:22px;right:-6px;background:var(--paper);color:var(--ink);font-family:Caveat,cursive;font-size:1.3rem;padding:4px 18px;transform:rotate(6deg);box-shadow:0 8px 18px rgba(0,0,0,.4)}
+  @media(max-width:600px){.cvnote{display:none}}
+  footer{padding:40px 0;color:var(--muted);font-size:.8rem;text-align:center}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}#role{transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#inicio">Angel<span>.</span></a>
+    <div class="links">
+      <a href="#sobre-mi">Sobre mí</a><a href="#proyectos">Proyectos</a><a href="#stack">Stack</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a>
+    </div>
+    <a class="cta-sm" href="cv/Angel-Diaz-CV.pdf" target="_blank" rel="noopener">Mi CV</a>
+  </div>
+</nav>
+
+<main class="wrap" id="inicio">
+  <div class="hero">
+    <div class="rv">
+      <div class="eyebrow"><span class="dot"></span>Disponible · Armenia, Colombia · Remoto</div>
+      <h1 class="serif">Hola, soy<br><em>Angel Diaz.</em></h1>
+      <div class="tag"><span id="role">Desarrollador Full Stack</span></div>
+      <p class="lead">Construyo <b>APIs REST con Java y Spring Boot</b>, clientes web en <b>React</b> y apps móviles con <b>React Native</b>. Estudiante de Ingeniería de Sistemas y capaz de explicar cada proyecto de principio a fin.</p>
+      <div class="btns">
+        <a class="btn primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn ghost" href="cv/Angel-Diaz-CV.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+          Descargar CV</a>
+      </div>
+    </div>
+
+    <div class="portrait rv" id="portrait">
+      <img src="img/angel.webp" alt="Angel Diaz" width="900" height="1113">
+      <div class="stat"><b>Full Stack</b><small>Java · React · React Native</small></div>
+      <div class="stat l"><b class="count" data-to="3">0</b><small>certificaciones Certiprof</small></div>
+      <div class="note">Pasa el cursor o toca la foto</div>
+    </div>
+  </div>
+
+  <div class="stickies rv">
+    <span class="sticky">Java</span><span class="sticky">Spring Boot</span><span class="sticky">React</span>
+    <span class="sticky">React Native</span><span class="sticky">TypeScript</span><span class="sticky">PostgreSQL</span>
+    <span class="sticky">Docker</span><span class="sticky">JWT</span><span class="sticky">Arquitectura hexagonal</span>
+  </div>
+
+  <section id="sobre-mi">
+    <div class="sec-head rv">
+      <div class="eyebrow">Sobre mí</div>
+      <h2 class="serif">Código limpio, probado<br><em>y bien explicado.</em></h2>
+    </div>
+    <div class="about">
+      <div class="rv">
+        <p>Soy desarrollador full stack de nivel inicial y estudiante de <b>Ingeniería de Sistemas</b> en la Universidad del Quindío. Me gusta el backend bien hecho: <b>seguridad con JWT, bases de datos versionadas y pruebas automatizadas</b> que cubren las reglas de negocio.</p>
+        <p>Del lado del cliente trabajo con React en web y React Native en móvil. Entrego con <b>Docker</b>, aplico <b>arquitectura hexagonal y SOLID</b>, y uso herramientas de desarrollo con IA en mi día a día.</p>
+      </div>
+      <div class="facts rv">
+        <div><span>Rol</span>Full Stack (Entry Level)</div>
+        <div><span>Ubicación</span>Armenia, Quindío · UTC-5</div>
+        <div><span>Modalidad</span>Remoto / asíncrono</div>
+        <div><span>Inglés</span>B2 profesional</div>
+        <div><span>Estudios</span>Ing. de Sistemas · 5.º sem.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="sec-head rv">
+      <div class="eyebrow">Proyectos</div>
+      <h2 class="serif">Lo que he construido,<br><em>de punta a punta.</em></h2>
+    </div>
+    <div class="projects">
+
+      <article class="proj rv">
+        <div class="stage" style="background:radial-gradient(circle at 30% 20%,#3a1a22,#120d0f)">
+          <div class="phone">
+            <div class="h">Evento · Boda Salazar</div>
+            <div class="row">Copas de vino ×120<span class="badge" style="background:#5fd38a;color:#0d2a17">Devuelto</span></div>
+            <div class="row">Licores ×24<span class="badge" style="background:#e8b04a;color:#2a1a05">Recibido</span></div>
+            <div class="row">Menaje ×60<span class="badge" style="background:#e8b04a;color:#2a1a05">Recibido</span></div>
+            <div class="row">Cristalería ×80<span class="badge" style="background:#c0505f;color:#fff">2 rotos</span></div>
+            <div class="row" style="justify-content:center;background:#e8b04a;color:#1a1210;font-weight:600">📷 Agregar evidencia</div>
+          </div>
+        </div>
+        <div>
+          <div class="year">2026 – actualidad · API + app móvil</div>
+          <h3>Event Inventory</h3>
+          <p>Custodia de equipos para eventos: sigue lo prestado durante todo el ciclo (planeado → recibido → devuelto → cerrado) y aplica la regla de cuadre.</p>
+          <ul>
+            <li>API REST segura con JWT, esquema versionado con Flyway y documentación OpenAPI.</li>
+            <li>Evidencia fotográfica con validación por firma y almacenamiento a prueba de path traversal.</li>
+            <li>App en React Native + Expo: rutas protegidas, token en SecureStore y subidas con reintento.</li>
+            <li>Pruebas unitarias y de integración con JUnit 5, Mockito y Testcontainers.</li>
+          </ul>
+          <div class="chips"><span class="chip">Java 25</span><span class="chip">Spring Boot 4</span><span class="chip">PostgreSQL</span><span class="chip">Flyway</span><span class="chip">Testcontainers</span><span class="chip">React Native</span><span class="chip">Expo</span></div>
+          <a class="more" href="https://github.com/Angel-D28/Inventario-eventos" target="_blank" rel="noopener">Ver en GitHub →</a>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="stage" style="background:radial-gradient(circle at 70% 20%,#3a2a12,#120d0f)">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="dash">
+              <div class="side"><div></div><div></div><div></div><div></div><div></div></div>
+              <div class="main">
+                <div class="kpis">
+                  <div class="kpi">Clientes<b>128</b></div><div class="kpi">Planes activos<b>42</b></div><div class="kpi">Pagos al día<b>96%</b></div>
+                </div>
+                <div class="bars"><span style="height:40%"></span><span style="height:55%"></span><span style="height:48%"></span><span style="height:70%"></span><span style="height:62%"></span><span style="height:85%"></span><span style="height:78%"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="year">2026 – actualidad · Plataforma web</div>
+          <h3>AF Estrategia Financiera</h3>
+          <p>Plataforma de asesoría financiera con roles (admin, agente, cliente) para planes, suscripciones y pagos.</p>
+          <ul>
+            <li>Backend en Spring Boot con arquitectura hexagonal: las reglas de negocio no dependen del framework.</li>
+            <li>Cliente en React + Vite + Tailwind con renovación automática de tokens vía interceptores de Axios.</li>
+            <li>Endpoints documentados con Swagger y errores HTTP semánticos centralizados.</li>
+          </ul>
+          <div class="chips"><span class="chip">Spring Boot 3.5</span><span class="chip">Spring Security</span><span class="chip">JWT</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">React</span><span class="chip">Tailwind</span></div>
+          <a class="more" href="https://github.com/Angel-D28/afEstrategiaFinanciera" target="_blank" rel="noopener">Ver en GitHub →</a>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="stage" style="background:radial-gradient(circle at 30% 80%,#24183a,#120d0f)">
+          <div class="term">
+            <span class="c">// InventarioService.java</span><br>
+            <span class="m">@Service</span><br>
+            <span class="k">public class</span> InventarioService {<br>
+            &nbsp;&nbsp;<span class="k">private final</span> ProductoRepository repo;<br><br>
+            &nbsp;&nbsp;<span class="m">@Transactional</span><br>
+            &nbsp;&nbsp;<span class="k">public</span> Venta registrar(VentaDto dto) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">var</span> p = repo.findById(dto.id())<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.orElseThrow(<span class="s">NotFound::new</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;p.descontar(dto.cantidad());<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span> ventas.save(Venta.de(p, dto));<br>
+            &nbsp;&nbsp;}<br>}
+          </div>
+        </div>
+        <div>
+          <div class="year">2026 – actualidad · Backend</div>
+          <h3>Gestión de Tienda</h3>
+          <p>Backend de inventario y transacciones con arquitectura de microservicios.</p>
+          <ul>
+            <li>Capas de repositorio y servicio para inventario y ventas con Spring Data JPA e Hibernate.</li>
+            <li>Persistencia en MySQL, con MongoDB y Redis en la arquitectura.</li>
+            <li>Microservicio de clientes independiente, configurado por variables de entorno.</li>
+          </ul>
+          <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">JPA / Hibernate</span><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span></div>
+          <a class="more" href="https://github.com/Angel-D28/client-api" target="_blank" rel="noopener">Ver en GitHub →</a>
+        </div>
+      </article>
+
+
+      <article class="proj rv">
+        <div class="stage" style="background:radial-gradient(circle at 70% 80%,#3a2412,#120d0f)">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div style="background:linear-gradient(135deg,#6b4423,#3b2414);padding:18px 16px;min-height:180px;position:relative">
+              <div style="font-family:'Instrument Serif',serif;font-size:1.35rem;color:#f5e6cf;line-height:1">Maderas &amp;<br>Machimbres</div>
+              <div style="height:5px;width:55%;background:rgba(245,230,207,.35);border-radius:3px;margin-top:10px"></div>
+              <div style="height:5px;width:40%;background:rgba(245,230,207,.35);border-radius:3px;margin-top:6px"></div>
+              <span style="display:inline-block;margin-top:12px;font-size:.55rem;font-weight:600;background:#e8b04a;color:#2a1a05;padding:4px 10px;border-radius:999px">Ver catálogo</span>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px">
+                <div style="height:34px;border-radius:6px;background:repeating-linear-gradient(90deg,#a8743f 0 6px,#946233 6px 12px)"></div>
+                <div style="height:34px;border-radius:6px;background:repeating-linear-gradient(90deg,#c69561 0 6px,#b58350 6px 12px)"></div>
+                <div style="height:34px;border-radius:6px;background:repeating-linear-gradient(90deg,#7c5230 0 6px,#6b4423 6px 12px)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="year">Proyecto web · Negocio local</div>
+          <h3>Maderas y Machimbres</h3>
+          <p>Sitio web para un negocio de maderas: página de inicio, catálogo de productos y acceso para clientes.</p>
+          <ul>
+            <li>Landing page y catálogo de productos.</li>
+            <li>Inicio de sesión de clientes con conexión a base de datos.</li>
+          </ul>
+          <div class="chips"><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+          <a class="more" href="https://github.com/Angel-D28/Maderas_y_machimbres" target="_blank" rel="noopener">Ver en GitHub →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="sec-head rv">
+      <div class="eyebrow">Stack</div>
+      <h2 class="serif">Las herramientas<br><em>con las que trabajo.</em></h2>
+    </div>
+    <div class="stack">
+      <div class="card rv"><div class="num">01</div><h3>Backend</h3>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">APIs REST</span><span class="chip">Spring Security</span><span class="chip">JWT</span><span class="chip">JPA / Hibernate</span><span class="chip">OpenAPI</span></div></div>
+      <div class="card rv"><div class="num">02</div><h3>Frontend y móvil</h3>
+        <div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Tailwind</span><span class="chip">Vite</span><span class="chip">React Native</span><span class="chip">PHP</span><span class="chip">Expo</span></div></div>
+      <div class="card rv"><div class="num">03</div><h3>Datos</h3>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQL</span><span class="chip">Flyway</span></div></div>
+      <div class="card rv"><div class="num">04</div><h3>Pruebas, herramientas y prácticas</h3>
+        <div class="chips"><span class="chip">JUnit 5</span><span class="chip">Mockito</span><span class="chip">Testcontainers</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Maven</span><span class="chip">Linux</span><span class="chip">Hexagonal</span><span class="chip">SOLID</span><span class="chip">IA (Claude)</span></div></div>
+    </div>
+  </section>
+
+  <section id="formacion">
+    <div class="sec-head rv">
+      <div class="eyebrow">Formación</div>
+      <h2 class="serif">Siempre<br><em>aprendiendo.</em></h2>
+    </div>
+    <div class="two">
+      <div class="tl rv">
+        <h3>Educación</h3>
+        <div class="item"><b>Ingeniería de Sistemas y Computación</b><span>Universidad del Quindío · 5.º semestre · grado previsto 2029</span></div>
+        <div class="item"><b>Programa Desarrollador Senior Java</b><span>DevSeniorCode / Florida Global University · 2027</span></div>
+        <div class="item"><b>Master en IA y Ciencia de Datos</b><span>DevSeniorCode / Florida Global University · 2027</span></div>
+        <div class="item"><b>Técnico en Programación de Software</b><span>SENA · Graduado 2023</span></div>
+      </div>
+      <div class="tl rv">
+        <h3>Certificaciones</h3>
+        <div class="item"><b>Java Backend Developer</b><span>Certiprof · 2026</span></div>
+        <div class="item"><b>Java Junior Developer Professional</b><span>Certiprof · 2026</span></div>
+        <div class="item"><b>Fundamentos de IA, Ciencia de Datos y ML</b><span>Certiprof · 2026</span></div>
+        <div class="item"><b>Spring Boot Backend Enterprise</b><span>DevSeniorCode</span></div>
+        <div class="item"><b>Michigan Language Assessment · Inglés B2</b><span>Cambridge University Press &amp; Assessment</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="contact rv">
+      <div class="cvnote">¡Mi hoja de vida! ↓</div>
+      <div class="eyebrow">Contacto</div>
+      <h2 class="serif">¿Buscas un desarrollador para tu equipo? <em>Hablemos.</em></h2>
+      <p>Estoy abierto a oportunidades remotas, prácticas y proyectos. Descarga mi CV o escríbeme directamente.</p>
+      <div class="btns">
+        <a class="btn primary" href="cv/Angel-Diaz-CV.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+          Descargar CV (PDF)</a>
+        <a class="btn ghost" href="https://wa.me/573059098204" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/angel-david-diaz-pinilla" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/Angel-D28" target="_blank" rel="noopener">GitHub · Angel-D28</a>
+        <a href="https://www.linkedin.com/in/angel-david-diaz-pinilla" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:angeldaviddiazpinilla@gmail.com">angeldaviddiazpinilla@gmail.com</a>
+        <span>+57 305 909 8204</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="y"></span> Angel David Díaz Pinilla · Armenia, Colombia</footer>
+
+<script>
+  const roles=["Desarrollador Full Stack","Backend · Java & Spring","Frontend · React","Apps móviles · React Native"];
+  let i=0; const el=document.getElementById("role");
+  setInterval(()=>{el.classList.add("out");setTimeout(()=>{i=(i+1)%roles.length;el.textContent=roles[i];el.classList.remove("out")},350)},2400);
+
+  const pt=document.getElementById("portrait"); pt.addEventListener("click",()=>pt.classList.toggle("color"));
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return; e.target.classList.add("in");
+    e.target.querySelectorAll(".count").forEach(c=>{
+      if(c.dataset.done)return; c.dataset.done=1; const to=+c.dataset.to; let n=0;
+      const t=setInterval(()=>{n++; c.textContent=n; if(n>=to)clearInterval(t)},250);
+    });
+    io.unobserve(e.target);
+  }),{threshold:.12});
+  document.querySelectorAll(".rv").forEach(r=>io.observe(r));
+  document.getElementById("y").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
