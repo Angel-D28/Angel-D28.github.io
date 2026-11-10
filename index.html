@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Angel Diaz — Portafolio</title>
-<meta name="description" content="Angel David Díaz Pinilla — Desarrollador Full Stack (Java, Spring Boot, React, React Native). Armenia, Colombia · Remoto, asíncrono e híbrido.">
+<meta name="description" content="Angel David Díaz Pinilla — Desarrollador Full Stack (Java, Spring Boot, PostgreSQL). Armenia, Colombia · Remoto, asíncrono e híbrido.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://angel-d28.github.io/">
 <meta property="og:title" content="Angel Diaz — Desarrollador Full Stack">
-<meta property="og:description" content="Java, Spring Boot, React, Angular y React Native. Conoce mis proyectos y descarga mi CV.">
+<meta property="og:description" content="Desarrollador Full Stack enfocado en Java, Spring Boot y PostgreSQL. Conoce mis proyectos y descarga mi CV.">
 <meta property="og:image" content="https://angel-d28.github.io/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -160,6 +160,20 @@
   .item b{display:block;font-weight:500;font-size:.95rem}
   .item span{color:var(--muted);font-size:.84rem}
 
+  .st{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:2px 9px;border-radius:999px;margin-left:6px;vertical-align:2px}
+  .st.on{background:rgba(232,176,74,.15);color:var(--accent);border:1px solid rgba(232,176,74,.4)}
+  .st.ok{background:rgba(95,211,138,.12);color:#5fd38a;border:1px solid rgba(95,211,138,.35)}
+  .master{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  @media(max-width:820px){.master{grid-template-columns:1fr}}
+  .master .card{padding:28px}
+  .master h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:2rem;margin:4px 0 8px}
+  .master p{color:var(--muted);font-size:.95rem}
+  .lvl{display:flex;align-items:center;gap:10px;margin:14px 0 4px;font-size:.78rem;color:var(--muted)}
+  .lvl i{flex:1;height:6px;border-radius:3px;background:var(--line);position:relative;overflow:hidden}
+  .lvl i::after{content:"";position:absolute;inset:0;width:var(--w);background:linear-gradient(90deg,var(--wine),var(--accent));border-radius:3px}
+  .also h3{font-size:1.05rem;margin-bottom:4px}
+  .also p{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+
   /* CV + CONTACT */
   .contact{text-align:center;background:linear-gradient(160deg,#2a141a,#16100f);border:1px solid var(--line);border-radius:32px;padding:60px 24px;position:relative;overflow:hidden}
   .contact h2{margin:10px auto 16px;max-width:700px}
@@ -183,7 +197,7 @@
   <div class="wrap">
     <a class="logo" href="#inicio">Angel<span>.</span></a>
     <div class="links">
-      <a href="#sobre-mi">Sobre mí</a><a href="#proyectos">Proyectos</a><a href="#stack">Stack</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a>
+      <a href="#sobre-mi">Sobre mí</a><a href="#formacion">Formación</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a>
     </div>
     <a class="cta-sm" href="cv/Angel-Diaz-CV.pdf" target="_blank" rel="noopener">Mi CV</a>
   </div>
@@ -195,7 +209,7 @@
       <div class="eyebrow"><span class="dot"></span>Disponible · Armenia, Colombia · Remoto · Asíncrono · Híbrido</div>
       <h1 class="serif">Hola, soy<br><em>Angel Diaz.</em></h1>
       <div class="tag"><span id="role">Desarrollador Full Stack</span></div>
-      <p class="lead">Construyo <b>APIs REST con Java y Spring Boot</b>, clientes web en <b>React</b> y <b>Angular</b> y apps móviles con <b>React Native</b>. Estudiante de Ingeniería de Sistemas y capaz de explicar cada proyecto de principio a fin.</p>
+      <p class="lead">Desarrollador full stack con enfoque en backend: construyo aplicaciones con <b>Java y Spring Boot</b> sobre bases de datos <b>PostgreSQL</b>. Estudiante de Ingeniería de Sistemas en la Universidad del Quindío.</p>
       <div class="btns">
         <a class="btn primary" href="#proyectos">Ver proyectos</a>
         <a class="btn ghost" href="cv/Angel-Diaz-CV.pdf" target="_blank" rel="noopener">
@@ -206,42 +220,88 @@
 
     <div class="portrait rv" id="portrait">
       <img src="img/angel.webp" alt="Angel Diaz" width="900" height="1139">
-      <div class="stat"><b>Full Stack</b><small>Java · React · React Native</small></div>
+      <div class="stat"><b>Full Stack</b><small>Java · Spring Boot · PostgreSQL</small></div>
       <div class="stat l"><b class="count" data-to="3">0</b><small>certificaciones Certiprof</small></div>
       <div class="note">Pasa el cursor o toca la foto</div>
     </div>
   </div>
 
   <div class="stickies rv">
-    <span class="sticky">Java</span><span class="sticky">Spring Boot</span><span class="sticky">React</span>
-    <span class="sticky">React Native</span><span class="sticky">TypeScript</span><span class="sticky">PostgreSQL</span>
-    <span class="sticky">Docker</span><span class="sticky">JWT</span><span class="sticky">Arquitectura hexagonal</span>
+    <span class="sticky">Java</span><span class="sticky">Spring Boot</span><span class="sticky">PostgreSQL</span>
+    <span class="sticky">APIs REST</span><span class="sticky">SQL</span>
   </div>
 
   <section id="sobre-mi">
     <div class="sec-head rv">
       <div class="eyebrow">Sobre mí</div>
-      <h2 class="serif">Código limpio, probado<br><em>y bien explicado.</em></h2>
+      <h2 class="serif">Backend sólido,<br><em>código bien hecho.</em></h2>
     </div>
     <div class="about">
       <div class="rv">
-        <p>Soy desarrollador full stack y estudiante de <b>Ingeniería de Sistemas</b> en la Universidad del Quindío. En mis proyectos priorizo un backend bien estructurado: <b>seguridad con JWT, bases de datos versionadas y pruebas automatizadas</b> que cubren las reglas de negocio y los requerimientos del cliente.</p>
-        <p>Del lado del cliente trabajo con <b>React y Angular</b> en web y <b>React Native</b> en móvil. Despliego con <b>Docker</b>, aplico <b>arquitectura hexagonal y principios SOLID</b>, y en mi día a día me apoyo en LLM web y locales.</p>
+        <p>Soy desarrollador full stack y estudiante de <b>Ingeniería de Sistemas</b> en la Universidad del Quindío. En mis proyectos priorizo un backend bien estructurado: <b>seguridad, bases de datos bien diseñadas y pruebas automatizadas</b> que cubren las reglas de negocio y los requerimientos del cliente.</p>
+        <p>También trabajo el lado del cliente con <b>React</b>, <b>Angular</b> y <b>React Native</b>, aplico <b>principios SOLID</b> y en mi día a día me apoyo en LLM web y locales.</p>
       </div>
       <div class="facts rv">
         <div><span>Rol</span>Desarrollador Full Stack</div>
         <div><span>Ubicación</span>Armenia, Quindío · UTC-5</div>
         <div><span>Modalidad</span>Remoto · Asíncrono · Híbrido</div>
         <div><span>Inglés</span>B2 profesional</div>
-        <div><span>Estudios</span>Ing. de Sistemas · 5.º sem.</div>
+        <div><span>Estudios</span>Ing. de Sistemas (en curso)</div>
       </div>
+    </div>
+  </section>
+
+
+
+
+  <section id="formacion">
+    <div class="sec-head rv">
+      <div class="eyebrow">Formación</div>
+      <h2 class="serif">Siempre<br><em>aprendiendo.</em></h2>
+    </div>
+    <div class="two">
+      <div class="tl rv">
+        <h3>Educación</h3>
+        <div class="item"><b>Ingeniería de Sistemas y Computación <span class="st on">En curso</span></b><span>Universidad del Quindío · 5.º semestre</span></div>
+        <div class="item"><b>Programa Desarrollador Senior Java <span class="st on">En curso</span></b><span>DevSeniorCode / Florida Global University</span></div>
+        <div class="item"><b>Master en IA y Ciencia de Datos <span class="st on">En curso</span></b><span>DevSeniorCode / Florida Global University</span></div>
+        <div class="item"><b>Técnico en Programación de Software <span class="st ok">Graduado</span></b><span>SENA · 2023</span></div>
+      </div>
+      <div class="tl rv">
+        <h3>Certificaciones</h3>
+        <div class="item"><b>Java Backend Developer</b><span>Certiprof · 2026</span></div>
+        <div class="item"><b>Java Junior Developer Professional</b><span>Certiprof · 2026</span></div>
+        <div class="item"><b>Fundamentos de IA, Ciencia de Datos y ML</b><span>Certiprof · 2026</span></div>
+        <div class="item"><b>Spring Boot Backend Enterprise</b><span>DevSeniorCode</span></div>
+        <div class="item"><b>Inglés B2 · Michigan Language Assessment</b><span>Cambridge University Press &amp; Assessment</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="sec-head rv">
+      <div class="eyebrow">Habilidades</div>
+      <h2 class="serif">En lo que soy<br><em>más fuerte.</em></h2>
+    </div>
+    <div class="master">
+      <div class="card rv"><div class="num">01</div><h3>Java + Spring Boot</h3>
+        <p>Mi herramienta principal. Construyo APIs REST completas: seguridad con JWT, validaciones, manejo de errores y pruebas automatizadas.</p>
+        <div class="lvl">Dominio<i style="--w:90%"></i>Avanzado</div></div>
+      <div class="card rv"><div class="num">02</div><h3>SQL + PostgreSQL</h3>
+        <p>Diseño de bases de datos relacionales, consultas y migraciones versionadas para que los datos evolucionen sin romper nada.</p>
+        <div class="lvl">Dominio<i style="--w:85%"></i>Avanzado</div></div>
+    </div>
+    <div class="card also rv">
+      <h3>También he trabajado con</h3>
+      <p>Conocimiento práctico, aplicado en mis proyectos.</p>
+      <div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">JUnit</span><span class="chip">MySQL</span></div>
     </div>
   </section>
 
   <section id="proyectos">
     <div class="sec-head rv">
       <div class="eyebrow">Proyectos</div>
-      <h2 class="serif">Lo que he construido,<br><em>de punta a punta.</em></h2>
+      <h2 class="serif">Lo que he<br><em>construido.</em></h2>
     </div>
     <div class="projects">
 
@@ -257,17 +317,12 @@
           </div>
         </div>
         <div>
-          <div class="year">2026 – actualidad · API + app móvil</div>
+          <div class="year">API + app móvil</div>
           <h3>Event Inventory</h3>
-          <p>Custodia de equipos para eventos: sigue lo prestado durante todo el ciclo (planeado → recibido → devuelto → cerrado) y aplica la regla de cuadre.</p>
-          <ul>
-            <li>API REST segura con JWT, esquema versionado con Flyway y documentación OpenAPI.</li>
-            <li>Evidencia fotográfica con validación por firma y almacenamiento a prueba de path traversal.</li>
-            <li>App en React Native + Expo: rutas protegidas, token en SecureStore y subidas con reintento.</li>
-            <li>Pruebas unitarias y de integración con JUnit 5, Mockito y Testcontainers.</li>
-          </ul>
-          <div class="chips"><span class="chip">Java 25</span><span class="chip">Spring Boot 4</span><span class="chip">PostgreSQL</span><span class="chip">Flyway</span><span class="chip">Testcontainers</span><span class="chip">React Native</span><span class="chip">Expo</span></div>
-          <a class="more" href="https://github.com/Angel-D28/Inventario-eventos" target="_blank" rel="noopener">Ver en GitHub →</a>
+          <p>Sistema para controlar los equipos que se prestan en eventos (copas, licores, menaje): qué salió, qué volvió y qué se dañó, con fotos como evidencia.</p>
+          <ul><li>Backend seguro en Java y Spring Boot, con base de datos PostgreSQL.</li><li>App móvil para registrar entregas y devoluciones desde el evento.</li></ul>
+          <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">PostgreSQL</span><span class="chip">React Native</span></div>
+          <a class="more" href="https://github.com/Angel-D28/Inventario-eventos" target="_blank" rel="noopener">Ver código en GitHub →</a>
         </div>
       </article>
 
@@ -287,16 +342,12 @@
           </div>
         </div>
         <div>
-          <div class="year">2026 – actualidad · Plataforma web</div>
+          <div class="year">Plataforma web</div>
           <h3>AF Estrategia Financiera</h3>
-          <p>Plataforma de asesoría financiera con roles (admin, agente, cliente) para planes, suscripciones y pagos.</p>
-          <ul>
-            <li>Backend en Spring Boot con arquitectura hexagonal: las reglas de negocio no dependen del framework.</li>
-            <li>Cliente en React + Vite + Tailwind con renovación automática de tokens vía interceptores de Axios.</li>
-            <li>Endpoints documentados con Swagger y errores HTTP semánticos centralizados.</li>
-          </ul>
-          <div class="chips"><span class="chip">Spring Boot 3.5</span><span class="chip">Spring Security</span><span class="chip">JWT</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">React</span><span class="chip">Tailwind</span></div>
-          <a class="more" href="https://github.com/Angel-D28/afEstrategiaFinanciera" target="_blank" rel="noopener">Ver en GitHub →</a>
+          <p>Plataforma para un emprendimiento de asesoría financiera donde administradores, agentes y clientes gestionan planes, suscripciones y pagos.</p>
+          <ul><li>Cada tipo de usuario ve y hace solo lo que le corresponde.</li><li>Backend en Spring Boot y panel web en React.</li></ul>
+          <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">PostgreSQL</span><span class="chip">React</span></div>
+          <a class="more" href="https://github.com/Angel-D28/afEstrategiaFinanciera" target="_blank" rel="noopener">Ver código en GitHub →</a>
         </div>
       </article>
 
@@ -317,16 +368,12 @@
           </div>
         </div>
         <div>
-          <div class="year">2026 – actualidad · Backend</div>
+          <div class="year">Backend</div>
           <h3>Gestión de Tienda</h3>
-          <p>Backend de inventario y transacciones con arquitectura de microservicios.</p>
-          <ul>
-            <li>Capas de repositorio y servicio para inventario y ventas con Spring Data JPA e Hibernate.</li>
-            <li>Persistencia en MySQL, con MongoDB y Redis en la arquitectura.</li>
-            <li>Microservicio de clientes independiente, configurado por variables de entorno.</li>
-          </ul>
-          <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">JPA / Hibernate</span><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span></div>
-          <a class="more" href="https://github.com/Angel-D28/client-api" target="_blank" rel="noopener">Ver en GitHub →</a>
+          <p>Sistema para manejar el inventario y las ventas de una tienda.</p>
+          <ul><li>Registra productos, existencias y transacciones.</li><li>Organizado en servicios independientes que pueden crecer por separado.</li></ul>
+          <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">MySQL</span></div>
+          <a class="more" href="https://github.com/Angel-D28/client-api" target="_blank" rel="noopener">Ver código en GitHub →</a>
         </div>
       </article>
 
@@ -349,58 +396,14 @@
           </div>
         </div>
         <div>
-          <div class="year">Proyecto web · Negocio local</div>
+          <div class="year">Sitio web · Negocio local</div>
           <h3>Maderas y Machimbres</h3>
-          <p>Sitio web para un negocio de maderas: página de inicio, catálogo de productos y acceso para clientes.</p>
-          <ul>
-            <li>Landing page y catálogo de productos.</li>
-            <li>Inicio de sesión de clientes con conexión a base de datos.</li>
-          </ul>
-          <div class="chips"><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
-          <a class="more" href="https://github.com/Angel-D28/Maderas_y_machimbres" target="_blank" rel="noopener">Ver en GitHub →</a>
+          <p>Sitio web para un negocio de maderas, con catálogo de productos y acceso para clientes.</p>
+          <ul><li>Página de inicio y catálogo para mostrar los productos.</li><li>Inicio de sesión de clientes.</li></ul>
+          <div class="chips"><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">HTML / CSS</span></div>
+          <a class="more" href="https://github.com/Angel-D28/Maderas_y_machimbres" target="_blank" rel="noopener">Ver código en GitHub →</a>
         </div>
       </article>
-    </div>
-  </section>
-
-  <section id="stack">
-    <div class="sec-head rv">
-      <div class="eyebrow">Stack</div>
-      <h2 class="serif">Las herramientas<br><em>con las que trabajo.</em></h2>
-    </div>
-    <div class="stack">
-      <div class="card rv"><div class="num">01</div><h3>Backend</h3>
-        <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">APIs REST</span><span class="chip">Spring Security</span><span class="chip">JWT</span><span class="chip">JPA / Hibernate</span><span class="chip">OpenAPI</span></div></div>
-      <div class="card rv"><div class="num">02</div><h3>Frontend y móvil</h3>
-        <div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Tailwind</span><span class="chip">Vite</span><span class="chip">React Native</span><span class="chip">PHP</span><span class="chip">Expo</span></div></div>
-      <div class="card rv"><div class="num">03</div><h3>Datos</h3>
-        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQL</span><span class="chip">Flyway</span></div></div>
-      <div class="card rv"><div class="num">04</div><h3>Pruebas, herramientas y prácticas</h3>
-        <div class="chips"><span class="chip">JUnit 5</span><span class="chip">Mockito</span><span class="chip">Testcontainers</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Maven</span><span class="chip">Linux</span><span class="chip">Hexagonal</span><span class="chip">SOLID</span><span class="chip">LLM web y locales</span></div></div>
-    </div>
-  </section>
-
-  <section id="formacion">
-    <div class="sec-head rv">
-      <div class="eyebrow">Formación</div>
-      <h2 class="serif">Siempre<br><em>aprendiendo.</em></h2>
-    </div>
-    <div class="two">
-      <div class="tl rv">
-        <h3>Educación</h3>
-        <div class="item"><b>Ingeniería de Sistemas y Computación</b><span>Universidad del Quindío · 5.º semestre · grado previsto 2029</span></div>
-        <div class="item"><b>Programa Desarrollador Senior Java</b><span>DevSeniorCode / Florida Global University · 2027</span></div>
-        <div class="item"><b>Master en IA y Ciencia de Datos</b><span>DevSeniorCode / Florida Global University · 2027</span></div>
-        <div class="item"><b>Técnico en Programación de Software</b><span>SENA · Graduado 2023</span></div>
-      </div>
-      <div class="tl rv">
-        <h3>Certificaciones</h3>
-        <div class="item"><b>Java Backend Developer</b><span>Certiprof · 2026</span></div>
-        <div class="item"><b>Java Junior Developer Professional</b><span>Certiprof · 2026</span></div>
-        <div class="item"><b>Fundamentos de IA, Ciencia de Datos y ML</b><span>Certiprof · 2026</span></div>
-        <div class="item"><b>Spring Boot Backend Enterprise</b><span>DevSeniorCode</span></div>
-        <div class="item"><b>Michigan Language Assessment · Inglés B2</b><span>Cambridge University Press &amp; Assessment</span></div>
-      </div>
     </div>
   </section>
 
@@ -430,7 +433,7 @@
 <footer>© <span id="y"></span> Angel David Díaz Pinilla · Armenia, Colombia</footer>
 
 <script>
-  const roles=["Desarrollador Full Stack","Backend · Java & Spring","Frontend · React","Apps móviles · React Native"];
+  const roles=["Desarrollador Full Stack","Backend · Java & Spring Boot","Bases de datos · PostgreSQL"];
   let i=0; const el=document.getElementById("role");
   setInterval(()=>{el.classList.add("out");setTimeout(()=>{i=(i+1)%roles.length;el.textContent=roles[i];el.classList.remove("out")},350)},2400);
 
